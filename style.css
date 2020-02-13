@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  background-color: #224941;
+}
+
+.project {
+  color: darkblue;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+  background-color: #336d62;
+}
+
+.project:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+} 
