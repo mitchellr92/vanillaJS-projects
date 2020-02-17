@@ -60,24 +60,24 @@ data.forEach(createBox);
 
 // Create speech boxes
 function createBox(item) {
-  const box = document.createElement('div');
+  const box = document.createElement("div");
 
   const { image, text } = item;
 
-  box.classList.add('box');
+  box.classList.add("box");
 
   box.innerHTML = `
     <img src="${image}" alt="${text}" />
     <p class="info">${text}</p>
   `;
 
-  box.addEventListener('click', () => {
+  box.addEventListener("click", () => {
     setTextMessage(text);
     speakText();
 
     // Add active effect
-    box.classList.add('active');
-    setTimeout(() => box.classList.remove('active'), 800);
+    box.classList.add("active");
+    setTimeout(() => box.classList.remove("active"), 800);
   });
 
   main.appendChild(box);
@@ -109,7 +109,12 @@ function setTextMessage(text) {
 
 // Speak text
 function speakText() {
-  speechSynthesis.speak(message)
+  speechSynthesis.speak(message);
+}
+
+// Set voice
+function setVoice(e) {
+  message.voice = voices.find(voice => voice.name === e.target.value);
 }
 
 // Voices changed
@@ -124,5 +129,14 @@ toggleBtn.addEventListener("click", () =>
 closeBtn.addEventListener("click", () =>
   document.getElementById("text-box").classList.remove("show")
 );
+
+// Change voice
+voicesSelect.addEventListener("change", setVoice);
+
+// Read text button
+readBtn.addEventListener('click', () => {
+  setTextMessage(textArea.value);
+  speakText();
+})
 
 getVoices();
