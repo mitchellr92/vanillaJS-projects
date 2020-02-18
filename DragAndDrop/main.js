@@ -75,6 +75,19 @@ function swapItems(fromIndex, toIndex) {
   listItems[toIndex].appendChild(itemOne);
 }
 
+function checkOrder() {
+  listItems.forEach((item, index) => {
+    const personName = item.querySelector(".draggable").innerText.trim();
+
+    if (personName !== richestPeople[index]) {
+      item.classList.add("wrong");
+    } else {
+      item.classList.remove("wrong");
+      item.classList.add("right");
+    }
+  });
+}
+
 function addEventListeners() {
   const draggables = document.querySelectorAll(".draggable");
   const dragListItems = document.querySelectorAll(".draggable-list li");
@@ -90,3 +103,5 @@ function addEventListeners() {
     item.addEventListener("dragleave", dragLeave);
   });
 }
+
+check.addEventListener("click", checkOrder);
