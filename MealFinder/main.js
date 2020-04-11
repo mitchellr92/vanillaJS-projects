@@ -71,7 +71,7 @@ function addMealToDOM(meal) {
   }
 
   single_mealEl.innerHTML = `
-  <div class="single-Meal">
+  <div class="single-meal">
     <h1>${meal.strMeal}</h1>
     <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
     <div class="single-meal-info">
